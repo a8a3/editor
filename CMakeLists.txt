@@ -7,7 +7,6 @@ else()
 endif()
 
 find_package(Threads REQUIRED)
-find_package(GTest   REQUIRED)
 find_package(Boost   REQUIRED)
 
 add_executable(editor       sources/main.cpp)
@@ -23,7 +22,6 @@ target_include_directories(editor_gtest PRIVATE
 )
 
 target_link_libraries(editor_gtest
-    ${GTEST_BOTH_LIBRARIES}
     ${CMAKE_THREAD_LIBS_INIT}
 )
 
@@ -54,17 +52,6 @@ set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 set(CPACK_PACKAGE_CONTACT alexpoligon@mail.ru)
 
 include(CPack)
-
-enable_testing()
-
-add_test(editor_gtest editor_gtest)
-
-add_custom_command(
-    TARGET editor_gtest
-    POST_BUILD 
-    COMMAND ./editor_gtest
-    COMMENT "Run test..."
-)
 
 find_package(Doxygen)
 set(DOXYGEN_IN  ${CMAKE_CURRENT_SOURCE_DIR}/docs/doxyfile.in)
