@@ -10,33 +10,18 @@ find_package(Threads REQUIRED)
 find_package(Boost   REQUIRED)
 
 add_executable(editor       sources/main.cpp)
-add_executable(editor_gtest tests/editor_gtest.cpp)
 
 set_target_properties(editor PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
 )
 
-target_include_directories(editor_gtest PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/sources
-)
-
-target_link_libraries(editor_gtest
-    ${CMAKE_THREAD_LIBS_INIT}
-)
-
 if (MSVC)
     target_compile_options(editor PRIVATE
         /W4 -O3
     )
-    target_compile_options(editor_gtest PRIVATE
-        /W4 -O3
-    )
 else ()
     target_compile_options(editor PRIVATE
-        -Wall -Wextra -pedantic -Werror -O3
-    )
-    target_compile_options(editor_gtest PRIVATE
         -Wall -Wextra -pedantic -Werror -O3
     )
 endif()
