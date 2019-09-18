@@ -4,6 +4,12 @@
 #include "controller.hpp"
 
 /**
+ *  \file
+ *  \brief Реализация интерфейса графического редактора.
+*/
+
+
+/**
  * \brief Класс графического редактора
  * 
  * 
@@ -44,12 +50,12 @@ public:
 
     /**
      * Обработчик команды удаления графического файла.
-     * \param[in] Указатель на удаляемый примитив.
+     * \param[in] shape Указатель на удаляемый примитив.
     */
     void on_del_shape(shape_ptr shape) const {
         app_controller_->del_shape(shape);
     }
 
 private:
-    application_controller_ptr app_controller_; /// Контроллер приложения
+    application_controller_ptr app_controller_; ///< Указатель на контроллер приложения
 };

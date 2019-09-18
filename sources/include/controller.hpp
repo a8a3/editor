@@ -1,19 +1,25 @@
 #pragma once
 
+/**
+ *  \file
+ *  \brief Контроллер приложения.
+*/
+
 #include "document.hpp"
 #include "shape.hpp"
 
 /**
  *  \brief   Класс контроллера приложения
- *  \details Скрывает детали реализации от приложения.
+ *  \details Скрывает детали реализации 
  * 
  */
 class application_controller final {
 public:
-    application_controller() = default;
+     application_controller() = default;
+    ~application_controller() = default;
 
     /**
-     *  \brief  Функция создания нового документа
+     *  Создание нового документа
      *  \return Указатель на созданный документ
      */
     document_ptr new_document () const {
@@ -21,17 +27,15 @@ public:
     }
 
     /**
-     *  \brief Функция сохранения документа в файл
-     * 
+     *  Сохранение документа
      *  \param[in] doc_name Имя файла для сохранения
      */
-     void save_document(const std::string& doc_name) const {
-        docs_mng_->save_document(doc_name);
+     void save_document(const std::string& file_name) const {
+        docs_mng_->save_document(file_name);
     }
 
     /**
-     *  \brief Функция загрузки документа из файла
-     * 
+     *  Загрузка документа из файла
      *  \param[in] doc_name Имя файла для загрузки
      *  \return             Указатель на загруженный документ
      */
@@ -40,8 +44,7 @@ public:
     }
 
     /**
-     *  \brief Функция добавления примитива
-     * 
+     *  Добавление примитива
      *  \param[in] type Тип примитива
      */
     void add_shape(shape_type type) const {
@@ -50,8 +53,7 @@ public:
     }
 
      /**
-     *  \brief Функция удаления примитива
-     * 
+     *  Удаление примитива
      *  \param[in] shape Указатель на удаляемый примитив
      */
    void del_shape(shape_ptr shape) const {
@@ -60,6 +62,6 @@ public:
     }
 
 private:
-    documents_manager_ptr docs_mng_; /// Указатель на менеджер документов
+    documents_manager_ptr docs_mng_;  ///< Указатель на менеджер документов   
 };
 using application_controller_ptr = std::shared_ptr<application_controller>;
