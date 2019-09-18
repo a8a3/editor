@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classformatter__creator.html" title="Класс фабрики для создания форматов документа " alt="" coords="5,31,141,57"/>
+<area shape="rect" id="node2" href="$classjson__formatter__creator.html" title="Класс json&#45; формата документа " alt="" coords="189,5,359,32"/>
+<area shape="rect" id="node3" href="$classxml__formatter__creator.html" title="Класс фабрики для создания xml&#45; формата документа " alt="" coords="191,56,357,83"/>
+</map>
