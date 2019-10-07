@@ -32,6 +32,7 @@ public:
      * Сохранение примитива
     */
     virtual void save() = 0;
+    virtual ~formatter() = default;
 };
 using formatter_ptr = std::shared_ptr<formatter>;
 
@@ -77,6 +78,7 @@ public:
      * \return Указатель на формат документа
     */
     virtual formatter_ptr create_formatter() const = 0;
+    virtual ~formatter_creator() = default;
 };
 using formatter_creator_ptr = std::shared_ptr<formatter_creator>;
 
@@ -176,6 +178,7 @@ namespace {
 class shape_creator {
 public:
     virtual shape_ptr create_shape() const = 0;   
+    virtual ~shape_creator() = default;
 };
 
 // ------------------------------------------------------------------
