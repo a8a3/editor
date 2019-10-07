@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['create_5fformatter',['create_formatter',['../classformatter__creator.html#ae5b91d914d32cc46426679b6212f7a85',1,'formatter_creator::create_formatter()'],['../classxml__formatter__creator.html#a0248fe037e4ef7b3d53e2bfd820f6e61',1,'xml_formatter_creator::create_formatter()'],['../classjson__formatter__creator.html#a7791fcba2979f56962c3d5101d444c4d',1,'json_formatter_creator::create_formatter()']]]
+  ['create_5fformatter',['create_formatter',['../classformatter__creator.html#a0c09aabaa177e45af8dfbff0fda157e9',1,'formatter_creator::create_formatter()'],['../classxml__formatter__creator.html#a07ab1bfe42a33938ac77a9bcfca757cc',1,'xml_formatter_creator::create_formatter()'],['../classjson__formatter__creator.html#a6b9e883674b26c1f1d4f799e785e7fd0',1,'json_formatter_creator::create_formatter()']]]
 ];
