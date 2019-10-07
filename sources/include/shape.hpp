@@ -77,7 +77,7 @@ public:
      * Создание формата документа
      * \return Указатель на формат документа
     */
-    virtual formatter_ptr create_formatter() const = 0;
+    virtual std::unique_ptr<formatter> create_formatter() const = 0;
     virtual ~formatter_creator() = default;
 };
 using formatter_creator_ptr = std::shared_ptr<formatter_creator>;
@@ -92,8 +92,8 @@ public:
      * Создание xml- формата документа
      * \return Указатель на xml- формат документа
     */
-    formatter_ptr create_formatter() const override {
-        return std::shared_ptr<xml_formatter>();
+    std::unique_ptr<formatter> create_formatter() const override {
+        return std::unique_ptr<xml_formatter>();
     }
 };
 
@@ -106,8 +106,8 @@ public:
      * Создание json- формата документа
      * \return Указатель на json- формат документа
     */
-    formatter_ptr create_formatter() const override {
-        return std::shared_ptr<json_formatter>();
+    std::unique_ptr<formatter> create_formatter() const override {
+        return std::unique_ptr<json_formatter>();
     }
 };
 
@@ -177,23 +177,23 @@ namespace {
 // ------------------------------------------------------------------
 class shape_creator {
 public:
-    virtual shape_ptr create_shape() const = 0;   
+    virtual std::unique_ptr<shape> create_shape() const = 0;   
     virtual ~shape_creator() = default;
 };
 
 // ------------------------------------------------------------------
 class lineseg_creator final : public shape_creator{
 public:
-    shape_ptr create_shape() const override {
-        return std::shared_ptr<lineseg>();
+    std::unique_ptr<shape> create_shape() const override {
+        return std::unique_ptr<lineseg>();
     }   
 };
 
 // ------------------------------------------------------------------
 class circle_creator final : shape_creator {
 public:
-    shape_ptr create_shape() const override{
-        return std::shared_ptr<circle>();
+    std::unique_ptr<shape> create_shape() const override{
+        return std::unique_ptr<circle>();
     }   
 };
 } // namespace
